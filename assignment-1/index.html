@@ -4,11 +4,72 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Bookstore</title>
+    <link rel="shortcut icon" href="../assets/book-shop.png" type="image/x-icon">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
-    Hello world
+    <header>
+      <div><h1>Bookstore</h1></div>
+      <div class="user-profile">
+        <i class="fa-solid fa-circle-user"></i>
+        <span>John Doe</span>
+      </div>
+    </header>
+    <main>
+      <div class="search-bar">
+        <input type="text" id="searchField" name="searchField" value="" onChange="" placeholder="Search books" />
+        <button type="button" onclick="openAddBookModal()">Add book</button>
+      </div>
+      <div id="books-status"></div>
+      <div id="table-book">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Author</th>
+              <th>Topic</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="bookTableBody"></tbody>
+        </table>
+      </div>
+    </main>
+    <div id="overlay"></div>
+    <div id="addBookModal" class="modal">
+      <div class="modal-heading">
+        <div class="modal-heading__text">Add book</div>
+        <div><i onclick="closeModal()" class="fa-solid fa-x"></i></div>
+      </div>
+      <div>
+        <div class="inputField">
+          <label for="addBookName">Name</label>
+          <input id="addBookName" name="addBookName" value="" placeholder="Enter book name" />
+          <span id="nameErrorMessage" class="errorMessage"></span>
+        </div>
+        <div class="inputField">
+          <label for="addBookAuthor">Author</label>
+          <input id="addBookAuthor" name="addBookAuthor" value="" placeholder="Enter book author" />
+          <span id="authorErrorMessage" class="errorMessage"></span>
+        </div>
+        <div class="inputField">
+          <label for="addBookTopic">Topic</label>
+          <select name="addBookTopic" id="addBookTopic"></select>
+        </div>
+      </div>
+      <div id="addBookButtonSection">
+        <button type="button" onClick="addBook()">Create</button>
+      </div>
+    </div>
+    <div id="deleteBookModal" class="modal"></div>
     <script src="script.js"></script>
   </body>
 </html>
